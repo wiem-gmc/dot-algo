@@ -1,0 +1,25 @@
+PROCEDURE dot_product (VAR status: STRING, v1, v2: ARRAY_OF_INTEGER[])
+VAR
+I: INTEGER;
+BEGIN
+IF V1.lenght==V2.lenght Then
+    FOR I FROM 0 TO V1.lenght-1 DO
+        ps:= ps + V1[I]*V2[I];
+        IF ps==0 Then
+            status:="TRUE";
+        END_IF;
+    END_FOR;
+END
+
+VAR 
+status: STRING :="FALSE";
+BEGIN
+    Read(V1);
+    Read(V2);
+    dot_product(status, V1,V2);
+    IF status=="TRUE" THEN
+        Write("The two vectors are orthogonal");
+    ELSE 
+        Write("The two vectors are not orthogonal);
+    END_IF;
+END
